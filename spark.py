@@ -14,6 +14,8 @@ def jaccard_similarity(list1, list2):
     set2 = set(list2)
     intersection = len(set.intersection(set1, set2))
     union = len(set.union(set1, set2))
+    if union == 0: # both sets are empty, i.e. they are equal
+        return 1
     return intersection/union
 
 rdd = sc.wholeTextFiles("../data/*/*")
